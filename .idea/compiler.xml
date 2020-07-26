@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="rest_assure_project" />
+        <module name="API-testing-with-Rest-Asssured" />
       </profile>
     </annotationProcessing>
   </component>

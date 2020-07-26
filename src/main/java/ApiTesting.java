@@ -66,4 +66,26 @@ public class ApiTesting {
         request.post(url).then().assertThat().statusCode(201);
 
     }
+    //method to make put request to existing data
+    public static void sendPutRequest(String url,int id){
+        RequestSpecification request = RestAssured.given();
+        JSONObject jsonObj = new JSONObject();
+        jsonObj.put("id",id)
+                .put("title","test")
+                .put("author","qa")
+                .put("extra","data-updated-1");
+        request.header("Content-Type", "application/json");
+        request.body(jsonObj.toString());
+        request.put(url+id).then().assertThat().statusCode(200);
+        //int statusCode = request.post(url).getStatusCode();
+        //System.out.println("The status code recieved: " + statusCode);
+
+    }
+    //method to make delete request to existing data by id
+    public static void sendDeleteRequest(String url,String id){
+        RequestSpecification request = RestAssured.given();
+        request.put(url+id).then().assertThat().statusCode(200);
+
+
+    }
 }
